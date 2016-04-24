@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+		<script>
+			var choiceOfColors = [ 
+				"blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"
+			];
+
+			var colorSelectedByComputer = choiceOfColors [0]; 		// just initiating before random selection
+			var colorSelectedByUser = ""; 							// blank initiation
+			var colorsNotMatching = true;							// initial mismatch
+			var numberOfGuesses = 0;								// start at 0
+			var promptString = "";									// blank initiation
+
+			function initiatePuzzleSolving() {
+				 chooseRandomColor();
+				 getUserToSolve();
+			}
+
+
+			function chooseRandomColor () {
+				var randomNum = Math.random()*10;
+				randomNum = Math.floor(randomNum);
+				colorSelectedByComputer = choiceOfColors [randomNum];
+				//alert ("Computer selected color is: " + colorSelectedByComputer);
+			}
+
+			function getUserToSolve () {
+				getUserInput (); 
+				validateAndCompareColors ();
+				while (colorsNotMatching) {
+					getUserInput ();
+					validateAndCompareColors ();
+				}
+			}
+
+			function getUserInput() {
+				promptString = "I'm thinking of one of these colors: \n \n";
+				promptString =  promptString + choiceOfColors.toString();
+				promptString =  promptString + "\n \n";
+				promptString =  promptString + "Type quit to exit game";
+				promptString =  promptString + "\n \n";
+				colorSelectedByUser = prompt (promptString);
+				numberOfGuesses ++;
+				//alert ("User selected color is: " + colorSelectedByUser);
+			}
+
+
+
+			function validateAndCompareColors  () {
+				if (colorSelectedByUser == "quit" ) {
+					colorsNotMatching = false;
+					return;
+				}
+				if (colorSelectedByUser == colorSelectedByComputer) {
+					document.body.style.backgroundColor = colorSelectedByComputer;
+					alert ("User selected color: " + colorSelectedByUser + " matches!! Number of guess is: " + numberOfGuesses);
+					colorsNotMatching = false;
+				}
+
+			}
+		</script>	
+	</head>
+	
+    <body onload=initiatePuzzleSolving()>
+
+	Agam's color puzzle solver page 2, welcome.  	
+	
+    </body>
+</html>
