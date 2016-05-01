@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<script>
+			var	numberOfFacesNeeded;
+			var	numberOfFacesAdded;
+			var xCoords;
+			var yCoords;
+			var theBOD;
+			var theLeftSide;
+			var theRightSide;
+			var smiley;
+			var hello;
+			
+			function initializeAll () {
+				numberOfFacesNeeded = 5;
+				numberOfFacesAdded = 0;
+				xCoords = 0;
+				yCoords = 0;
+				theBOD = document.getElementById("theBody");
+				theLeftSide = document.getElementById("leftSide");
+				theRightSide = document.getElementById("rightSide");
+			}
+			
+			function generateFaces () {
+				initializeAll ();
+				while (numberOfFacesAdded < numberOfFacesNeeded) {
+					randomizeCoords();
+					addSmileyToLeftDiv();
+					numberOfFacesAdded ++;
+				}
+				addSmileyToBody();
+			}
+			
+			function randomizeCoords (){
+				xCoords = Math.floor ((Math.random()*400)+1);
+				yCoords = Math.floor ((Math.random()*400)+1);
+			}
+			
+			function addSmileyToLeftDiv (){
+				smiley = document.createElement("img");
+				smiley.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+				smiley.style.left = xCoords;
+				smiley.style.top = yCoords;
+				smiley.style.position = "absolute";
+				theLeftSide.appendChild(smiley);
+			}
+			
+			function addSmileyToBody (){
+				//alert ("adding Smiley to Body");
+			}
+		</script>
+		<style>
+			.leftDivStyle{
+				position: absolute;
+				top: 150px;
+				width:500px;
+				height:500px;
+				background-color: beige;
+			}
+			
+			.rightDivStyle{
+				position: absolute;
+				left: 508px;
+				top: 150px;
+				width:500px;
+				height:500px;
+				background-color: beige;
+				border-left: red 1px solid;			
+			}
+		</style>	
+	</head>
+	<body id="theBody" onload="generateFaces();">
+		<h1>
+		Matching Game - Agam Singh
+		</h1>
+		<p>
+		Click on the extra smiling face on the left.
+		</p>
+		
+		<div id="parentDiv">
+			<div id="leftSide" class="leftDivStyle">
+			</div>
+			<div id="rightSide" class="rightDivStyle">
+			<!--
+			<img src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png"></img>
+			-->
+			</div>
+		</div>
+				
+</body></html>
