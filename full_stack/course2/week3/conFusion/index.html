@@ -79,6 +79,7 @@
             </div>
     </nav> 
     
+    <!-- Login Modal --> 
     <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -109,6 +110,75 @@
         </div>
     </div>
     
+    <!-- Reserve Table Modal --> 
+
+    <div id="ReserveTableModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Reserve a Table</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Navbar Form, task1 -->
+                    
+                    <form class="form-horizontal" role="form" id="ReserveForm">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <label for="NumberOfGuests" class="control-label">Number of Guests</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="radio" name="NumGuests"> 1
+                            <input type="radio" name="NumGuests"> 2
+                            <input type="radio" name="NumGuests"> 3
+                            <input type="radio" name="NumGuests"> 4
+                            <input type="radio" name="NumGuests"> 5
+                            <input type="radio" name="NumGuests"> 6
+                        </div>
+                    </div>
+                        
+                    <div class="form-group">                        
+                        <div class="col-sm-2">
+                            <label for="Sectionn" class="control-label">&nbsp;&nbsp;&nbsp;Section</label>
+                        </div>
+                        <div class="btn-group col-sm-10">
+                            <button type="button" class="btn btn-success">Non-smoking</button>
+                            <button type="button" class="btn btn-danger">Smoking</button>
+                        </div>
+                    </div>
+                        
+                    <div class="form-group">                        
+                        <div class="col-sm-2">
+                            <label for="DateTime" class="control-label">&nbsp;&nbsp;&nbsp;Date and Time</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="date" class="sr-only"></label>
+                            <input id="date" class="form-control" type="text" name="date" title="Enter date" placeholder="Date"/><i class="glyphicon glyphicon-calendar form-control-feedback">&nbsp;&nbsp;</i>
+                        </div>       
+                        <div class="col-sm-4">
+                            <label for="lastname" class="sr-only"></label>
+                            <input id="time" class="form-control" type="text" name="time" title="Enter time" placeholder="Time"></input><i class="glyphicon glyphicon-time form-control-feedback">&nbsp;&nbsp;</i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Reserve</button>
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Warning!</strong> Please <a href="tel:+1234567890">call</a> us to reserve for more than 6 guests.
+                    </div>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
     
     <header class="jumbotron">
         <!-- Main component for a primary marketing message or call to action -->
@@ -125,7 +195,10 @@
                 </div>
                 <div class="col-xs-12 col-sm-2">
                     <p style="padding:40px;"></p>
+                    <!--
                     <a type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="Or Call us at +852 12345678" data-placement="bottom" href="#ReserveForm">Reserve Table</a>
+                    -->
+                    <a type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#ReserveTableModal"  href="#ReserveForm">Reserve Table</a>
                 </div>
                   
 
@@ -267,6 +340,8 @@
             </div>
         </div>
         -->
+        
+        <!-- OLD Reserve Table Form 
         <div class="row row-content">
             <div class="col-xs-12 col-sm-3">
                 <p style="padding:20px;"></p>
@@ -312,6 +387,8 @@
                 </form>
             </div>
         </div>
+        OLD Reserve Table Form
+        -->
     </div>
 
     <footer class="row-footer">
