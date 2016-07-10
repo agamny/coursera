@@ -27,10 +27,15 @@
     <div class="container">
         <div class="row row-content" ng-controller="dishDetailController as ddC">
             <div class="col-xs-12">
-                <p>{{ddC.dish.name}} Put the dish details here</p>
+                <p>
+                    {{ddC.dish.name}} 
+                </p>
+                <p>
+                    {{ddC.dish.description}}
+                </p>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
-                <p>Put the comments here</p>
+                <p>{{ddC.dish.comments}}</p>
             </div>
         </div>
 
