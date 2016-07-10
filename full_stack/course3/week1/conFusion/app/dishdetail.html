@@ -28,23 +28,11 @@
         <div class="row row-content" ng-init="dish=dDC.dish">
             
             <div class="col-xs-12">
-                <p>
-                    {{dish.name}} 
-                </p>
-                <p>
-                    {{dish.description}}
-                </p>
-            </div>
-            <div class="col-xs-9 col-xs-offset-1">
-                <p>{{dish.comments}}</p>
-            </div>
-            
-            <div class="col-xs-12">
                 <div class="media">
                     <div class="media-left media-middle">
                         <a href="#">
                         <img class="media-object img-thumbnail"
-                         ng-src={{dish.image}} alt="Uthappizza">
+                         ng-src={{dish.image}} alt="{{dish.name}}">
                         </a>
                     </div>
                     <div class="media-body">
@@ -54,6 +42,13 @@
                         <p>{{dish.description}}</p>
                     </div>
                 </div>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1">
+                <blockquote ng-repeat="comment in dish.comments">
+                    <p>Rating: {{comment.rating}}</p>
+                    <p>{{comment.comment}}</p>
+                    <footer>{{comment.author}}, {{comment.date | date}}</footer>
+                </blockquote>
             </div>
             
             
