@@ -44,13 +44,20 @@
                 </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
-                <blockquote ng-repeat="comment in dish.comments">
-                    <p>Rating: {{comment.rating}}</p>
-                    <p>{{comment.comment}}</p>
-                    <footer>{{comment.author}}, {{comment.date | date}}</footer>
+                <div>
+                    <p>Please enter your sort preference for the comments:
+                    <input type="text" ng-model="query">
+                    </p>
+                </div>
+                <div>
+                <blockquote ng-repeat="comment in dish.comments | orderBy: query">
+                    <p>Rating: {{comment.rating}}
+                    <br/>
+                    {{comment.comment}}</p>
+                    <footer>{{comment.author}}, commented on {{comment.date | date}}</footer>
                 </blockquote>
+                </div>
             </div>
-            
             
         </div>
 
