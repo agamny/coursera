@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     changed = require('gulp-changed'),
     rev = require('gulp-rev'),
     browserSync = require('browser-sync'),
+    foreach = require('gulp-foreach'),
     del = require('del');
 
 var ngannotate = require('gulp-ng-annotate');
@@ -27,23 +28,50 @@ gulp.task('clean', function() {
     return del(['dist']);
 });
 
+/*
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('usemin', 'imagemin','copyfonts');
+    gulp.start('usemin', 'imagemin', 'copyfonts', 'copy-htmls');
 });
 
+*/
 
+gulp.task('default', ['clean'], function() {
+    gulp.start('usemin', 'imagemin', 'copyfonts');
+});
 
-
+/*
 gulp.task('usemin',['jshint'], function () {
-  return gulp.src('./app/dishdetail.html')
+  return gulp.src('./app/index.html')
     .pipe(usemin({
       css:[minifycss(),rev()],
       js: [ngannotate(),uglify(),rev()]
     }))
-    
     .pipe(gulp.dest('dist/'));
 });
+*/
+
+//gulp.task('usemin',['jshint'], function () {
+//  return gulp.src('./app/**/*.html')
+//    .pipe(usemin({
+//      css:[minifycss(),rev()],
+//      js: [ngannotate(),uglify(),rev()]
+//    }))
+//    .pipe(gulp.dest('dist/'));
+//});
+//
+
+gulp.task('usemin', ['jshint'], function() {
+  return gulp.src(['./app/**/*.html'])
+    .pipe(foreach(function (stream, file) {
+      return stream.pipe(usemin({
+        js: [ngannotate(), uglify(), rev()],
+        css:[minifycss(), rev()],
+      }));
+    }))
+    .pipe(gulp.dest('dist/'));
+});
+
 
 // Images
 gulp.task('imagemin', function() {
@@ -70,6 +98,14 @@ gulp.task('watch', ['browser-sync'], function() {
 
 });
 
+
+gulp.task('copy-htmls', function() {
+    gulp.src('app/**/*.html')
+    // Perform minification tasks, etc here
+    .pipe(gulp.dest('./dist'));
+});
+
+
 gulp.task('browser-sync', ['default'], function () {
    var files = [
       'app/**/*.html',
@@ -82,11 +118,12 @@ gulp.task('browser-sync', ['default'], function () {
    browserSync.init(files, {
       server: {
          baseDir: "dist",
-         index: "dishdetail.html"
+         index: "index.html"
       }
    });
-        // Watch any files in dist/, reload on change
-  gulp.watch(['dist/**']).on('change', browserSync.reload);
+    
+    // Watch any files in dist/, reload on change
+    gulp.watch(['dist/**']).on('change', browserSync.reload);
     
 
 });
