@@ -62,7 +62,7 @@ gulp.task('usemin',['jshint'], function () {
 //
 
 gulp.task('usemin', ['jshint'], function() {
-  return gulp.src(['./app/**/*.html'])
+  return gulp.src(['./app/index.html'])
     .pipe(foreach(function (stream, file) {
       return stream.pipe(usemin({
         js: [ngannotate(), uglify(), rev()],
