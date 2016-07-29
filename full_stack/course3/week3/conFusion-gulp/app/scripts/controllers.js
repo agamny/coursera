@@ -2,13 +2,14 @@
 
 angular.module('confusionApp')
 
-    .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+        .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
             
             $scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
 
-            $scope.dishes= menuFactory.getDishes();            
+            $scope.dishes= menuFactory.getDishes();
+
                         
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
@@ -67,49 +68,56 @@ angular.module('confusionApp')
             };
         }])
 
-        /*
-        .controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {
-            var dish= menuFactory.getDish(parseInt($routeParams.id,10));                        
-            $scope.dish = dish;
-                    }])
-        */
         .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
-            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
-                        $scope.dish = dish;
-                    }])
 
-        .controller('DishCommentController', function($scope) {
+            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
             
-            $scope.commentIn = {author:"", rating:"", comment:"", date:"" };
+            $scope.dish = dish;
             
-            $scope.commentIn.rating = "5";
-    
-            //Step 1: Create a JavaScript object to hold the comment from the form
+        }])
+
+        .controller('DishCommentController', ['$scope', function($scope) {
+            
+            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
+            
             $scope.submitComment = function () {
                 
-                console.log($scope.commentIn);
+                $scope.mycomment.date = new Date().toISOString();
+                console.log($scope.mycomment);
                 
-                //Step 2: This is how you record the date
-                $scope.commentIn.date = new Date().toISOString();
+                $scope.dish.comments.push($scope.mycomment);
                 
-                console.log($scope.commentIn.date);
-                console.log($scope.commentIn.comment);
-                console.log($scope.commentIn.author);
-                
-                // Step 3: Push your comment into the dish's comment array
-                $scope.dish.comments.push($scope.commentIn);
-                
-                //Step 4: reset your form to pristine
                 $scope.commentForm.$setPristine();
                 
-                //Step 5: reset your JavaScript object that holds your comment
-                //$scope.commentIn = {fullName:"", rating:"", commentText:"", commentDate:"" };
-                $scope.commentIn = {author:"", rating:"", comment:"", date:"" };
-                
+                $scope.mycomment = {rating:5, comment:"", author:"", date:""};
             }
-        })
+        }])
+
+        // implement the IndexController and About Controller here
+        .controller('IndexController', ['$scope', '$stateParams', 'menuFactory', 'corporateFactory', function($scope, $stateParams, menuFactory, corporateFactory) {
+            console.debug("Inside index controller");
+
+            //var promotion = menuFactory.getPromotion(parseInt($stateParams.id,10));
+            var promotion = menuFactory.getPromotion(0);
+            $scope.promotion = promotion;    
+           
+            var dish = menuFactory.getDish(0);
+            $scope.dish = dish;    
+           
+            
+            var leaders = corporateFactory.getLeaders();
+            console.debug("Get Leaders being invoked from index controller");
+            $scope.leaders = leaders;
+            
+        }])
 
 
+        .controller('AboutController', ['$scope', '$stateParams', 'corporateFactory', function($scope, $stateParams, corporateFactory) {
+            var leaders = corporateFactory.getLeaders();
+            console.debug("Get Leaders being invoked from about controller");
+            $scope.leaders = leaders;
+            
+        }])
 
 
 ;
