@@ -1,8 +1,9 @@
 
-    <div class="container" ng-controller="DishDetailController as dDC">
-        <div class="row row-content">
-            
-            <div class="col-xs-12">
+    <div class="row row-content" ng-controller="DishDetailController as dDC">
+            <div class="col-xs-12" ng-if="!showDish">
+                <h3>{{message}}</h3>
+            </div>
+            <div class="col-xs-12" ng-if="showDish">    
                 <button class="btn btn-xs btn-primary pull-right"
                     type="button" ui-sref="app.menu">
                     Back to Menu
@@ -42,22 +43,22 @@
                     <ul class="list-unstyled" ng-hide="commentForm.$pristine">
                         <em>Sneak peak at your comment:</em>
                         <blockquote>
-                        <p>Rating: {{commentIn.rating}}
+                        <p>Rating: {{mycomment.rating}}
                         <br/>
-                        {{commentIn.comment}}</p>
-                        <footer>{{commentIn.author}}, commented on {{commentIn.date | date}}</footer>
+                        {{mycomment.comment}}</p>
+                        <footer>{{mycomment.author}}, commented on {{mycomment.date | date}}</footer>
                         </blockquote>
                     </ul>
                 
                 <form class="form-horizontal" name="commentForm"
-                		ng-submit="submitComment()" ng-model="commentIn" novalidate>
+                		ng-submit="submitComment()" ng-model="mycomment" novalidate>
 				
                     <h3>Your comments are welcome!</h3>
                     <div class="form-group" ng-class="{ 'has-error' : commentForm.author.$error.required && !commentForm.author.$pristine }">
                         <label for="author" class="col-sm-2 control-label">Full Name</label>
                         <div class="col-sm-10">
                         <input type="text" class="form-control" id="author" name="author" placeholder="Enter Full Name"
-                        ng-model="commentIn.author" required>
+                        ng-model="mycomment.author" required>
                         <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Your full name is required.</span>    
                         </div>
                     </div>
@@ -65,11 +66,11 @@
                     <div class="form-group">
                         <label for="rating" class="col-sm-2 control-label">Rating</label>
                         <div class="col-sm-10">
-                            1 <input type="radio" value="1" ng-model="commentIn.rating">
-                            2 <input type="radio" value="2" ng-model="commentIn.rating">
-                            3 <input type="radio" value="3" ng-model="commentIn.rating">
-                            4 <input type="radio" value="4" ng-model="commentIn.rating">
-                            5 <input type="radio" value="5" ng-model="commentIn.rating">    
+                            1 <input type="radio" value="1" ng-model="mycomment.rating">
+                            2 <input type="radio" value="2" ng-model="mycomment.rating">
+                            3 <input type="radio" value="3" ng-model="mycomment.rating">
+                            4 <input type="radio" value="4" ng-model="mycomment.rating">
+                            5 <input type="radio" value="5" ng-model="mycomment.rating">    
                         </div>
                     </div>
                     
@@ -78,7 +79,7 @@
                         <label for="comment" class="col-sm-2 control-label">Your Comment</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" rows="12"
-                                ng-model="commentIn.comment" id="comment" name="comment" required>
+                                ng-model="mycomment.comment" id="comment" name="comment" required>
                             </textarea>
                             <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Comment text is required.</span>
                         </div>
@@ -90,7 +91,6 @@
                     </div> 
                 </form>
             </div>
-        </div>
 
     </div>
 
