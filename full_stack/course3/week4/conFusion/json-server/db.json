@@ -208,7 +208,7 @@
       "image": "images/buffet.png",
       "label": "New",
       "price": "19.99",
-      "description": "Featuring mouthwatering combinations with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person "
+      "description": "Featuring mouthwatering combinationsssss with a choice of five different salads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person "
     }
   ],
   "leadership": [
@@ -245,5 +245,158 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": []
+  "feedback": [
+    {
+      "mychannel": "",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": false,
+      "email": "agamnatasha@gmail.com",
+      "tel": {
+        "number": "2300324",
+        "areaCode": "408"
+      },
+      "id": 1
+    },
+    {
+      "mychannel": "",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": false,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "id": 2
+    },
+    {
+      "mychannel": "",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": false,
+      "email": "agamnatasha@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "id": 3
+    },
+    {
+      "mychannel": "",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": false,
+      "email": "agamny@gmail.om",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "id": 4
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 5
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 6
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 7
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 8
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 9
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments",
+      "id": 10
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Ammasmdf",
+      "lastName": "asdfasdf",
+      "agree": true,
+      "email": "agamny@gmail.com",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My comments!! what",
+      "id": 11
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Agam",
+      "lastName": "Singh",
+      "agree": true,
+      "email": "agamnatasha@gmail.commmmmmmm",
+      "tel": {
+        "areaCode": "408",
+        "number": "2300324"
+      },
+      "comments": "My feedback....",
+      "id": 12
+    }
+  ]
 }
